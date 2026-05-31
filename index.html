@@ -1,0 +1,130 @@
+ <!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saniya So - Mali Propre</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <header class="header">
+        <nav class="navbar">
+            <div class="logo">
+                <div class="logo-text">
+                 <a href="index.html"><img src="images/logo.jpeg" alt="logo SaniyaSo"></a>
+                    <p>Ensemble pour un Mali propre</p>
+                </div>
+            </div>
+            <button class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
+    <li><a href="index.html" class="active">Accueil</a></li>
+    <li><a href="signaler.html">Signaler</a></li>
+    <li><a href="depotoir.html">Dépotoirs</a></li>
+    <li><a href="apropos.html">À propos</a></li>
+</ul>
+        </nav>
+    </header>
+    <main class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="title">Ensemble pour<br>un <span>Mali propre</span></h1>
+                <p class="description">
+                    Saniya So est une plateforme citoyenne qui permet à chacun de signaler les dépôts d'ordures, les décharges sauvages et les endroits insalubres dans nos quartiers.
+                </p>
+                <p class="sub-description">Rejoignez des milliers de citoyens engagés pour un Mali plus propre.</p>
+                <div class="actions">
+                    <a href="signaler.html" class="btn btn-green"><i class="fas fa-leaf"></i> Signaler un dépôt</a>
+                    <a href="depotoir.html" class="btn btn-outline"><i class="fas fa-play"></i> Voir les dépotoirs</a>
+                </div>
+                <div class="stats">
+                    <div class="stat-card">
+                        <span class="icon"><i class="fas fa-map-marker-alt"></i></span>
+                        <div><strong>1 248+</strong><p>Dépôts signalés</p></div>
+                    </div>
+                    <div class="stat-card">
+                        <span class="icon"><i class="fas fa-users"></i></span>
+                        <div><strong>5 320+</strong><p>Citoyens engagés</p></div>
+                    </div>
+                    <div class="stat-card">
+                        <span class="icon"><i class="fas fa-check-circle"></i></span>
+                        <div><strong>320+</strong><p>Dépôts traités</p></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero-visual">
+                <img src="images/iphone.png" alt="Saniya App" class="phone">
+            </div>
+        </div>
+    </main>
+
+    <div class="mission">
+        <p class="mission-tag">NOTRE MISSION</p>
+        <h2>Un Mali propre commence par nous tous.</h2>
+        <div class="line"></div>
+    </div>
+
+    <footer class="main-footer">
+        <div class="footer-inner">
+            <div class="footer-section left">
+                <div class="footer-brand">
+                    <h2>Saniya So</h2>
+                </div>
+                <p class="description-footer">
+                    Saniya So est une initiative citoyenne qui utilise la technologie pour améliorer notre cadre de vie et construire un Mali plus propre.
+                </p>
+            </div>
+
+            <div class="footer-section center">
+                <h3>Navigation</h3>
+                <ul>
+                    <li><a href="#">Accueil</a></li>
+                    <li><a href="#">Signaler</a></li>
+                    <li><a href="#">Dépotoirs</a></li>
+                    <li><a href="#">À propos</a></li>
+                </ul>
+            </div>
+<div class="footer-section center">
+    <h3>Suivez-nous</h3>
+    <ul class="social-links">
+        <li><a href="#"><i class="fab fa-facebook"></i> Facebook</a></li>
+        <li><a href="#"><i class="fab fa-x-twitter"></i> X (Twitter)</a></li>
+        <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+        <li><a href="#"><i class="fab fa-whatsapp"></i> WhatsApp</a></li>
+    </ul>
+</div>
+            <div class="footer-section right">
+                <h3>Nous contacter</h3>
+                <ul class="contact-info">
+    <li><i class="fas fa-map-marker-alt"></i> Bamako, Mali</li>
+    <li><i class="fas fa-phone-alt"></i> +223 90 00 00 00</li>
+    <li><i class="fas fa-envelope"></i> contact@saniyaso.ml</li>
+    <li><i class="far fa-clock"></i> Lun - Ven : 08h - 17h</li>
+</ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2026 Saniya So. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <script>
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+        
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            menuToggle.classList.toggle('active');
+        });
+    </script>
+
+</body>
+</html>

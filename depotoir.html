@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dépotoir - Saniya SO</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="depotoir.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <div class="logo">
+                <div class="logo-text">
+                 <a href="index.html"><img src="images/logo.jpeg" alt="logo SaniyaSo"></a>
+                    <p>Ensemble pour un Mali propre</p>
+                </div>
+            </div>
+            <button class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
+    <li><a href="index.html">Accueil</a></li>
+    <li><a href="signaler.html">Signaler</a></li>
+    <li><a href="depotoir.html" class="active">Dépotoirs</a></li>
+    <li><a href="apropos.html">À propos</a></li>
+</ul>
+        </nav>
+    </header>
+
+  <!-- SECTION HERO -->
+  <section class="depotoir-hero">
+    <div class="hero-overlay">
+      <h1>Carte des Dépotoirs</h1>
+      <p>Découvrez les zones de dépôts d'ordures signalées par les citoyens à travers Bamako</p>
+    </div>
+  </section>
+
+  <!-- CONTENU -->
+  <main>
+  <section class="container">
+
+    <!-- LISTE DEPOTOIRS -->
+    <div class="left-section">
+
+      <!-- CARD 1 -->
+      <div class="dump-card">
+        <img src="images/lafiabougou.jpg" alt="">
+
+        <div class="card-content">
+          <div class="top-line">
+            <h2>Dépotoir de lafiabougou</h2>
+            <span class="badge red">Actif</span>
+          </div>
+
+          <p class="location">
+            <i class="fa-solid fa-location-dot"></i>
+            <a href="https://www.google.com/maps/place/Dépôt+d'ordures+de+Lafiabougou/@12.6227648,-8.0593263,14z/data=!4m6!3m5!1s0xe51cdefd9be4935:0x67560b0e3106691e!8m2!3d12.6227648!4d-8.0387269!16s%2Fg%2F11r3ksg0zl?entry=ttu&g_ep=EgoyMDI2MDUwMi4wIKXMDSoASAFQAw%3D%3D">Cote LIVIA</a>
+          </p>
+
+          <p class="description">
+            Dépotoir sauvage derrière la cimitiere de lafiabougou.
+          </p>
+
+          <div class="distance">
+            <span>1.2 km</span>
+            <i class="fa-solid fa-location-crosshairs"></i>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 2 -->
+      <div class="dump-card">
+        <img src="images/moribabougou.jpg" alt="">
+
+        <div class="card-content">
+          <div class="top-line">
+            <h2>Dépotoir de moribabougou</h2>
+            <span class="badge red">Actif</span>
+          </div>
+
+          <p class="location">
+            <i class="fa-solid fa-location-dot"></i>
+            <a href="https://maps.app.goo.gl/bct2KwV17Maovm8Z7">
+            côte du marche</a>
+          </p>
+
+          <p class="description">
+            Dépotoir le long du canal de moribabougou.
+          </p>
+
+          <div class="distance">
+            <span>2.5 km</span>
+            <i class="fa-solid fa-location-crosshairs"></i>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 3 -->
+      <div class="dump-card">
+        <img src="images/Niarela.jpg" alt="">
+
+        <div class="card-content">
+          <div class="top-line">
+            <h2>Dépotoir de Niarela</h2>
+            <span class="badge orange">Modéré</span>
+          </div>
+
+          <p class="location">
+            <i class="fa-solid fa-location-dot"></i>
+            <a href="https://maps.app.goo.gl/dKLUxHJo3vQ7WgpJ7">
+            prés de l'ancien marche</a>
+          </p>
+
+          <p class="description">
+            Zone de dépôt d'ordures non contrôlée.
+          </p>
+
+          <div class="distance">
+            <span>3.7 km</span>
+            <i class="fa-solid fa-location-crosshairs"></i>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 4 -->
+      <div class="dump-card">
+        <img src="images/Dravela.jpg" alt="">
+
+        <div class="card-content">
+          <div class="top-line">
+            <h2>Dépotoir de Dravela</h2>
+            <span class="badge green">Faible</span>
+          </div>
+
+          <p class="location">
+            <i class="fa-solid fa-location-dot"></i>
+            <a href="https://maps.app.goo.gl/QqBbSg9jET7H3o8H7">
+            prés du marche</a>
+          </p>
+
+          <p class="description">
+            Dépotoir situé derrière le terrain de sport.
+          </p>
+
+          <div class="distance">
+            <span>4.6 km</span>
+            <i class="fa-solid fa-location-crosshairs"></i>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- CARTE -->
+    <div class="map-section">
+      <img src="images/Maps.png" alt="Carte">
+    </div>
+  </section>
+  </main>
+
+    <footer class="main-footer">
+        <div class="footer-inner">
+            <div class="footer-section left">
+                <div class="footer-brand">
+                    <h2>Saniya So</h2>
+                </div>
+                <p class="description-footer">
+                    Saniya So est une initiative citoyenne qui utilise la technologie pour améliorer notre cadre de vie et construire un Mali plus propre.
+                </p>
+            </div>
+
+            <div class="footer-section center">
+                <h3>Navigation</h3>
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="signaler.html">Signaler</a></li>
+                    <li><a href="depotoir.html">Dépotoirs</a></li>
+                    <li><a href="apropos.html">À propos</a></li>
+                </ul>
+            </div>
+<div class="footer-section center">
+    <h3>Suivez-nous</h3>
+    <ul class="social-links">
+        <li><a href="#"><i class="fab fa-facebook"></i> Facebook</a></li>
+        <li><a href="#"><i class="fab fa-x-twitter"></i> X (Twitter)</a></li>
+        <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+        <li><a href="#"><i class="fab fa-whatsapp"></i> WhatsApp</a></li>
+    </ul>
+</div>
+            <div class="footer-section right">
+                <h3>Nous contacter</h3>
+                <ul class="contact-info">
+    <li><i class="fas fa-map-marker-alt"></i> Bamako, Mali</li>
+    <li><i class="fas fa-phone-alt"></i> +223 90 00 00 00</li>
+    <li><i class="fas fa-envelope"></i> contact@saniyaso.ml</li>
+    <li><i class="far fa-clock"></i> Lun - Ven : 08h - 17h</li>
+</ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2026 Saniya So. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <script>
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+        
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            menuToggle.classList.toggle('active');
+        });
+    </script>
+
+</body>
+</html>

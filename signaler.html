@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIGNALER UN DEPOTOIR</title>
+    <link rel="stylesheet" href="Style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <nav class="navbar">
+            <div class="logo">
+                <div class="logo-text">
+                 <a href="index.html"><img src="images/logo.jpeg" alt="logo SaniyaSo"></a>
+                    <p>Ensemble pour un Mali propre</p>
+                </div>
+            </div>
+            <button class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
+    <li><a href="index.html">Accueil</a></li>
+    <li><a href="signaler.html" class="active">Signaler</a></li>
+    <li><a href="depotoir.html">Dépotoirs</a></li>
+    <li><a href="apropos.html">À propos</a></li>
+</ul>
+        </nav>
+    </header>
+
+    <section class="haut-page"
+        style="background-image: url('images/agents.jpeg');
+       background-size: cover;
+       background-position: center;
+       min-height: 100vh;">
+    <div class="formdepo">
+  <form id="monFormulaire" class="formulaire-compact">
+    
+    <div class="boite-photo">
+        <div id="icon-placeholder">
+            <svg viewBox="0 0 24 24" width="48" height="48">
+                <path d="M12 15C13.6569 15 15 13.6569 15 12C15 10.3431 13.6569 9 12 9C10.3431 9 9 10.3431 9 12C9 13.6569 10.3431 15 12 15Z" fill="#1d9041"/>
+                <path d="M20 4H16.83L15 2H9L7.17 4H4C2.9 4 2 4.9 2 6V18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4ZM12 17C9.24 17 7 14.76 7 12C7 9.24 9.24 7 12 7C14.76 7 17 9.24 17 12C17 14.76 14.76 17 12 17Z" fill="#1d9041"/>
+            </svg>
+        </div>
+        <h2>Téléchargez votre photo</h2>
+        <p>Sélectionnez une photo claire pour une analyse optimale</p>
+        <label for="file-upload" class="green-btn">Choisir une photo</label>
+        <input type="file" id="file-upload" style="display:none;">
+    </div>
+
+    <div class="form-row">
+        <label>Nom :</label>
+        <input type="text" id="nom" placeholder="Entrez votre nom (facultatif)">
+    </div>
+    <div class="form-row">
+        <label>Lieu :</label>
+        <input type="text" id="lieu" placeholder="Signaler le lieu" required>
+    </div>
+    <div class="form-row">
+        <label>DESCRIPTION :</label>
+        <textarea id="desc" placeholder="Décrivez le dit dépotoir" required></textarea>
+    </div>
+    
+    <button type="submit" class="green-btn">ENVOYEZ LE SIGNALEMENT</button>
+</form>
+
+<div id="messageSucces" style="display:none; background:#1d9041; color:white; padding:20px; text-align:center; border-radius:10px; margin-top:20px; font-weight:bold;">
+    Signalement envoyé avec succès !
+</div>
+<div id="messageSucces" class="message-succes-style">
+    Signalement envoyé avec succès !
+</div>
+
+<div id="messageSucces" style="display:none; color:white; font-weight:bold; margin-top:20px;">
+    Signalement envoyé avec succès !
+</div>
+<script>
+    document.getElementById('monFormulaire').addEventListener('submit', function(e) {
+        e.preventDefault(); // Bloque l'envoi réel
+
+        const lieu = document.getElementById('lieu').value;
+        const desc = document.getElementById('desc').value;
+
+        // Validation simple
+        if (lieu.trim() === "" || desc.trim() === "") {
+            alert("Veuillez remplir les champs 'Lieu' et 'Description' obligatoires.");
+        } else {
+            // Affiche le message
+            const msg = document.getElementById('messageSucces');
+            msg.style.display = "block"; 
+            
+            // Vide les champs
+            this.reset(); 
+            
+            // Le cache après 5 secondes
+            setTimeout(function() {
+                msg.style.display = "none";
+            }, 5000);
+        }
+    });
+    
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+    
+    menuToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+        menuToggle.classList.toggle('active');
+    });
+</script>
+</div>
+
+    <footer class="main-footer">
+        <div class="footer-inner">
+            <div class="footer-section left">
+                <div class="footer-brand">
+                    <h2>Saniya So</h2>
+                </div>
+                <p class="description-footer">
+                    Saniya So est une initiative citoyenne qui utilise la technologie pour améliorer notre cadre de vie et construire un Mali plus propre.
+                </p>
+            </div>
+
+            <div class="footer-section center">
+                <h3>Navigation</h3>
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="signaler.html">Signaler</a></li>
+                    <li><a href="depotoir.html">Dépotoirs</a></li>
+                    <li><a href="apropos.html">À propos</a></li>
+                </ul>
+            </div>
+<div class="footer-section center">
+    <h3>Suivez-nous</h3>
+    <ul class="social-links">
+        <li><a href="#"><i class="fab fa-facebook"></i> Facebook</a></li>
+        <li><a href="#"><i class="fab fa-x-twitter"></i> X (Twitter)</a></li>
+        <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+        <li><a href="#"><i class="fab fa-whatsapp"></i> WhatsApp</a></li>
+    </ul>
+</div>
+            <div class="footer-section right">
+                <h3>Nous contacter</h3>
+                <ul class="contact-info">
+    <li><i class="fas fa-map-marker-alt"></i> Bamako, Mali</li>
+    <li><i class="fas fa-phone-alt"></i> +223 90 00 00 00</li>
+    <li><i class="fas fa-envelope"></i> contact@saniyaso.ml</li>
+    <li><i class="far fa-clock"></i> Lun - Ven : 08h - 17h</li>
+</ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2026 Saniya So. Tous droits réservés.</p>
+        </div>
+    </footer>
+</section>
+
+</body>
+</html>

@@ -1,0 +1,616 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+    background: #f5f5f7;
+}
+
+/* HEADER & NAVBAR */
+.header { 
+    padding: 12px 6%; 
+    background: #fff;
+    position: relative;
+    z-index: 10;
+    border-bottom: 1px solid #e5e5e5;
+} 
+
+.navbar { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+}
+
+.logo { 
+    display: flex; 
+    align-items: center; 
+}
+
+.logo img {
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.logo-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.logo-text p { 
+    font-size: 0.7rem; 
+    color: #666; 
+    margin-top: 3px;
+    text-align: left;
+}
+
+.nav-links { 
+    display: flex; 
+    list-style: none; 
+    gap: 25px; 
+}
+
+.nav-links a { 
+    text-decoration: none; 
+    color: #1A1A1A; 
+    font-weight: 500; 
+    font-size: 0.92rem; 
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: #2D7A4D;
+}
+
+.nav-links a.active { 
+    color: #2D7A4D; 
+    border-bottom: 2px solid #2D7A4D; 
+    padding-bottom: 3px; 
+    font-weight: 700; 
+}
+
+/* Menu hamburger */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    z-index: 1000;
+}
+
+.menu-toggle span {
+    width: 28px;
+    height: 3px;
+    background: #2D7A4D;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+.menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(8px, 8px);
+}
+
+.menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+}
+
+/* Suppression de l'ancien style navbar */
+
+/* SECTION HERO DEPOTOIR */
+.depotoir-hero {
+    background: #fff;
+    padding: 80px 6% 60px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.depotoir-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #2D7A4D 0%, #1a5a36 50%, #2D7A4D 100%);
+}
+
+.depotoir-hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: #2D7A4D;
+    border-radius: 2px;
+}
+
+.hero-overlay h1 {
+    font-size: 2.8rem;
+    font-weight: 800;
+    margin-bottom: 15px;
+    color: #1A1A1A;
+    position: relative;
+    display: inline-block;
+}
+
+.hero-overlay h1::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: #2D7A4D;
+    border-radius: 2px;
+}
+
+.hero-overlay p {
+    font-size: 1.15rem;
+    color: #666;
+    max-width: 650px;
+    margin: 25px auto 0;
+    line-height: 1.7;
+    font-weight: 400;
+}
+
+/* CONTENU */
+
+.container{
+    display: flex;
+    gap: 90px;
+    padding: 40px 50px;
+    align-items: flex-start;
+    min-height: 70vh;
+}
+
+/* LEFT */
+
+.left-section{
+    width: 42%;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    max-height: 85vh;
+    overflow-y: auto;
+    padding-right: 10px;
+}
+
+.left-section::-webkit-scrollbar {
+    width: 6px;
+}
+
+.left-section::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+.left-section::-webkit-scrollbar-thumb {
+    background: #2D7A4D;
+    border-radius: 10px;
+}
+
+.left-section::-webkit-scrollbar-thumb:hover {
+    background: #1a5a36;
+}
+
+.dump-card{
+    background: white;
+
+    display: flex;
+    gap: 15px;
+
+    padding: 15px;
+
+    border-radius: 15px;
+
+    margin-bottom: 15px;
+
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.dump-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.dump-card img{
+    width: 140px;
+    height: 130px;
+    min-width: 140px;
+
+    object-fit: cover;
+
+    border-radius: 12px;
+}
+
+.card-content{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.top-line{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 8px;
+}
+
+.top-line h2{
+    font-size: 1.1rem;
+    color: #222;
+    font-weight: 700;
+}
+
+.badge{
+    padding: 6px 14px;
+    border-radius: 20px;
+
+    color: white;
+    font-size: 0.75rem;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.red{
+    background: #ff4d6d;
+}
+
+.orange{
+    background: #ffb703;
+}
+
+.green{
+    background: #34c759;
+}
+
+.location{
+    color: #666;
+    margin-bottom: 10px;
+
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.location i{
+    color: #2D7A4D;
+    font-size: 0.95rem;
+}
+
+.location a {
+    color: #2D7A4D;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.location a:hover {
+    text-decoration: underline;
+}
+
+.description{
+    color: #555;
+    line-height: 1.5;
+
+    margin-bottom: 12px;
+
+    font-size: 0.9rem;
+}
+
+.distance{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    gap: 6px;
+
+    color: #666;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+.distance i {
+    color: #2D7A4D;
+}
+
+/* MAP */
+
+.map-section{
+    width: 58%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    position: sticky;
+    top: 20px;
+}
+
+.map-section img{
+    width: 100%;
+    height: auto;
+    max-height: 85vh;
+    object-fit: contain;
+    border: 1px solid #e5e5e5;
+    border-radius: 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+/* --- STYLE FOOTER GLOBAL SANIYA SO --- */
+.main-footer {
+    background: #043b2d;
+    color: white;
+    padding: 40px 8% 20px;
+    margin-top: auto; 
+}
+.footer-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+.footer-section {
+    flex: 1;
+    min-width: 200px;
+}
+.footer-section h3 {
+    color: #22c55e;
+    margin-bottom: 12px;
+    font-size: 15px;
+    font-weight: 600;
+}
+.footer-section p, .footer-section li, .footer-section a {
+    color: #e5e7eb;
+    text-decoration: none;
+    list-style: none;
+    line-height: 1.8;
+    font-size: 14px;
+}
+/* Alignement des textes */
+.footer-section.left, .footer-section.center, .footer-section.right {
+    text-align: left;
+}
+/* Style pour les icônes réseaux sociaux */
+.social-links li a i {
+    margin-right: 8px;
+    width: 20px;
+    text-align: center;
+}
+.footer-section a:hover { color: #22c55e; }
+.footer-bottom {
+    text-align: center;
+    margin-top: 30px;
+    padding-top: 15px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    font-size: 13px;
+    color: #9ca3af;
+}
+
+/* RESPONSIVE (pour que ça reste propre sur mobile) */
+@media (max-width: 768px) { 
+    /* Header & Navigation */
+    .header {
+        padding: 12px 4%;
+    }
+    
+    .navbar {
+        position: relative;
+    }
+    
+    .menu-toggle {
+        display: flex;
+    }
+    
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        height: 100vh;
+        width: 70%;
+        max-width: 300px;
+        background: white;
+        flex-direction: column;
+        padding: 80px 30px 30px;
+        gap: 20px;
+        box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+        transition: right 0.4s ease;
+        z-index: 999;
+    }
+    
+    .nav-links.active {
+        right: 0;
+    }
+    
+    .nav-links li {
+        width: 100%;
+    }
+    
+    .nav-links a {
+        display: block;
+        padding: 12px 0;
+        font-size: 1.1rem;
+        border-bottom: 1px solid #f0f0f0;
+    }
+    
+    .nav-links a.active {
+        border-bottom: 2px solid #2D7A4D;
+    }
+    
+    .logo img {
+        width: 55px;
+        height: 55px;
+    }
+    
+    .logo-text p {
+        font-size: 0.65rem;
+    }
+    
+    /* Hero section */
+    .depotoir-hero {
+        padding: 60px 5% 50px;
+    }
+    
+    .hero-overlay h1 {
+        font-size: 2rem;
+    }
+    
+    .hero-overlay h1::after {
+        width: 50px;
+        height: 2px;
+        bottom: -8px;
+    }
+    
+    .hero-overlay p {
+        font-size: 1rem;
+        margin-top: 20px;
+    }
+    
+    /* Container responsive */
+    .container {
+        flex-direction: column;
+        gap: 30px;
+        padding: 30px 5%;
+        min-height: auto;
+    }
+    
+    .left-section {
+        width: 100%;
+        gap: 0;
+        max-height: none;
+        overflow-y: visible;
+        padding-right: 0;
+    }
+    
+    .map-section {
+        width: 100%;
+        order: -1;
+        position: static;
+    }
+    
+    .map-section img {
+        max-height: 50vh;
+        border-radius: 15px;
+    }
+    
+    /* Cards responsive */
+    .dump-card {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px;
+        margin-bottom: 15px;
+    }
+    
+    .dump-card img {
+        width: 100%;
+        height: 200px;
+        min-width: auto;
+    }
+    
+    .card-content {
+        width: 100%;
+    }
+    
+    .top-line {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    
+    .top-line h2 {
+        font-size: 1.1rem;
+    }
+    
+    .badge {
+        padding: 6px 14px;
+        font-size: 0.8rem;
+    }
+    
+    .location, .description {
+        font-size: 0.95rem;
+    }
+    
+    .distance {
+        font-size: 0.9rem;
+    }
+    
+    /* Footer */
+    .footer-inner { 
+        flex-direction: column; 
+        text-align: center; 
+    }
+    .footer-section { 
+        text-align: center; 
+    }
+    
+    .main-footer {
+        padding: 30px 5% 15px;
+    }
+}
+
+@media (max-width: 1024px) and (min-width: 769px) {
+    .about-hero {
+        padding: 70px 5% 55px;
+    }
+    
+    .about-hero .hero-overlay h1 {
+        font-size: 2.4rem;
+    }
+    
+    .about-hero .hero-overlay p {
+        font-size: 1.1rem;
+    }
+    
+    .container {
+        gap: 40px;
+        padding: 30px 4%;
+    }
+    
+    .left-section {
+        width: 48%;
+        max-height: 80vh;
+    }
+    
+    .map-section {
+        width: 52%;
+    }
+    
+    .map-section img {
+        max-height: 80vh;
+    }
+    
+    .dump-card {
+        padding: 12px;
+    }
+    
+    .dump-card img {
+        width: 120px;
+        height: 110px;
+        min-width: 120px;
+    }
+    
+    .top-line h2 {
+        font-size: 1rem;
+    }
+    
+    .location, .description {
+        font-size: 0.85rem;
+    }
+}
