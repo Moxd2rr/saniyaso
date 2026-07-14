@@ -38,20 +38,24 @@
        min-height: 100vh;">
     <div class="formdepo">
   <form id="monFormulaire" class="formulaire-compact">
-    
-    <div class="boite-photo">
-        <div id="icon-placeholder">
-            <svg viewBox="0 0 24 24" width="48" height="48">
-                <path d="M12 15C13.6569 15 15 13.6569 15 12C15 10.3431 13.6569 9 12 9C10.3431 9 9 10.3431 9 12C9 13.6569 10.3431 15 12 15Z" fill="#1d9041"/>
-                <path d="M20 4H16.83L15 2H9L7.17 4H4C2.9 4 2 4.9 2 6V18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4ZM12 17C9.24 17 7 14.76 7 12C7 9.24 9.24 7 12 7C14.76 7 17 9.24 17 12C17 14.76 14.76 17 12 17Z" fill="#1d9041"/>
-            </svg>
-        </div>
+<div class="boite-photo">
+    <div id="upload-content" style="text-align: center;">
+        <svg viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
+            <circle cx="12" cy="13" r="4"></circle>
+        </svg>
+        
         <h2>Téléchargez votre photo</h2>
         <p>Sélectionnez une photo claire pour une analyse optimale</p>
-        <label for="file-upload" class="green-btn">Choisir une photo</label>
-        <input type="file" id="file-upload" style="display:none;">
     </div>
 
+    <img id="image-preview" src="#" alt="Aperçu" style="display:none; max-width: 100%; border-radius: 8px;">
+
+    <input type="file" id="file-upload" accept="image/*" style="display:none;" onchange="previewImage(event)">
+    <label for="file-upload" class="green-btn" style="cursor:pointer; display:inline-block; margin-top:10px;">
+        Choisir une photo
+    </label>
+</div>
     <div class="form-row">
         <label>Nom :</label>
         <input type="text" id="nom" placeholder="Entrez votre nom (facultatif)">
@@ -60,6 +64,17 @@
         <label>Lieu :</label>
         <input type="text" id="lieu" placeholder="Signaler le lieu" required>
     </div>
+    <div class="form-row">
+    <button type="button" id="btnLocalisation" class="green-btn">
+        📍 Utiliser ma position actuelle
+    </button>
+
+    <br><br>
+
+    <a id="lienMaps" href="#" target="_blank" style="display:none; color:#1d9041; font-weight:bold;">
+        📍 Voir l'emplacement sur Google Maps
+    </a>
+</div>
     <div class="form-row">
         <label>DESCRIPTION :</label>
         <textarea id="desc" placeholder="Décrivez le dit dépotoir" required></textarea>
@@ -79,37 +94,98 @@
     Signalement envoyé avec succès !
 </div>
 <script>
-    document.getElementById('monFormulaire').addEventListener('submit', function(e) {
-        e.preventDefault(); // Bloque l'envoi réel
-
-        const lieu = document.getElementById('lieu').value;
-        const desc = document.getElementById('desc').value;
-
-        // Validation simple
-        if (lieu.trim() === "" || desc.trim() === "") {
-            alert("Veuillez remplir les champs 'Lieu' et 'Description' obligatoires.");
-        } else {
-            // Affiche le message
-            const msg = document.getElementById('messageSucces');
-            msg.style.display = "block"; 
-            
-            // Vide les champs
-            this.reset(); 
-            
-            // Le cache après 5 secondes
-            setTimeout(function() {
-                msg.style.display = "none";
-            }, 5000);
+function previewImage(event) {
+    const uploadContent = document.getElementById('upload-content');
+    const preview = document.getElementById('image-preview');
+    const file = event.target.files[0];
+    
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            uploadContent.style.display = 'none'; 
+            preview.src = e.target.result;
+            preview.style.display = 'block'; 
         }
-    });
+        reader.readAsDataURL(file);
+    }
+}
+document.getElementById('monFormulaire').addEventListener('submit', function(e) {
+    e.preventDefault(); 
+    const msg = document.getElementById('messageSucces');
+    msg.style.display = 'block';
     
-    const menuToggle = document.getElementById('menuToggle');
-    const navLinks = document.getElementById('navLinks');
-    
+    // Réinitialisation de l'interface
+    document.getElementById('image-preview').style.display = 'none'; 
+    document.getElementById('upload-content').style.display = 'block'; 
+    this.reset();
+    setTimeout(function() {
+        msg.style.display = 'none';
+    }, 5000);
+});
+const menuToggle = document.getElementById('menuToggle');
+const navLinks = document.getElementById('navLinks');
+
+if (menuToggle) {
     menuToggle.addEventListener('click', () => {
         navLinks.classList.toggle('active');
         menuToggle.classList.toggle('active');
     });
+}
+const btnLocalisation = document.getElementById("btnLocalisation");
+const champLieu = document.getElementById("lieu");
+const lienMaps = document.getElementById("lienMaps");
+
+btnLocalisation.addEventListener("click", function () {
+
+    if (!navigator.geolocation) {
+        alert("La géolocalisation n'est pas prise en charge par votre navigateur.");
+        return;
+    }
+
+    navigator.geolocation.getCurrentPosition(function(position){
+
+        const latitude = position.coords.latitude;
+        const longitude = position.coords.longitude;
+
+        // Affichage temporaire pendant la recherche
+        champLieu.value = "Recherche de votre emplacement...";
+
+        // Transformer les coordonnées en adresse
+        fetch(`https://nominatim.openstreetmap.org/reverse?lat=${latitude}&lon=${longitude}&format=json`)
+        .then(response => response.json())
+        .then(data => {
+
+            const adresse = data.address;
+
+            let commune = adresse.city || adresse.town || adresse.village || adresse.municipality || "";
+            let quartier = adresse.suburb || adresse.neighbourhood || "";
+
+            if (quartier && commune) {
+                champLieu.value = quartier + ", " + commune;
+            } else if (commune) {
+                champLieu.value = commune;
+            } else {
+                champLieu.value = "Emplacement trouvé";
+            }
+
+        })
+        .catch(() => {
+            champLieu.value = "Impossible de trouver l'adresse";
+        });
+
+
+        // Lien Google Maps
+        lienMaps.href = `https://www.google.com/maps?q=${latitude},${longitude}`;
+        lienMaps.style.display = "inline";
+
+
+    }, function(){
+
+        alert("Impossible de récupérer votre position.");
+
+    });
+
+});
 </script>
 </div>
 

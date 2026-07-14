@@ -47,11 +47,8 @@ h1{
     top: 0;
 }
 form {
-    /* Suppression du fond blanc opaque */
     background-color: rgba(255, 255, 255, 0.2); 
-    /* Ajout d'un effet de flou pour le look "glassmorphism" */
     backdrop-filter: blur(10px); 
-    /* Ajout d'une bordure fine pour définir les contours */
     border: 1px solid rgba(255, 255, 255, 0.3);
     
     display: flex;
@@ -62,16 +59,15 @@ form {
     justify-content: center;
     margin-top: 20px;
     gap: 20px;
-    padding: 40px; /* J'ai augmenté un peu le padding pour laisser respirer */
+    padding: 40px; 
     margin-bottom: 50px;
 }
 label {
-    color: white; /* Passage du texte en blanc pour contraster avec le fond */
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.5); /* Ombre portée pour la lisibilité */
+    color: white; 
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5); 
 }
-/* Optionnel : Ajustez aussi les champs de saisie pour qu'ils s'harmonisent */
 input, #zone-desc {
-    background-color: rgba(255, 255, 255, 0.7); /* Légèrement transparent aussi */
+    background-color: rgba(255, 255, 255, 0.7); 
     border: none;
     border-radius: 10px;
 }
@@ -225,8 +221,6 @@ body {
     padding-bottom: 3px; 
     font-weight: 700; 
 }
-
-/* Menu hamburger */
 .menu-toggle {
     display: none;
     flex-direction: column;
@@ -257,8 +251,6 @@ body {
 .menu-toggle.active span:nth-child(3) {
     transform: rotate(-45deg) translate(7px, -7px);
 }
-
-/* HERO SIGNALER (même style que depotoir) */
 .signaler-hero {
     background: #fff;
     padding: 80px 6% 60px;
@@ -554,9 +546,8 @@ body {
     text-align: center;
     color: #22c55e;  
 }
-/* Le conteneur principal qui porte la transparence */
 form {
-    background-color: rgba(255, 255, 255, 0.2); /* Transparence uniforme */
+    background-color: rgba(255, 255, 255, 0.2); 
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.3);
     border-radius: 30px;
@@ -568,23 +559,17 @@ form {
     align-items: center;
     gap: 20px;
 }
-
-/* On rend le bloc photo transparent */
 .boite-photo {
-    background: transparent; /* Suppression du fond blanc */
-    box-shadow: none;        /* Suppression de l'ombre opaque */
+    background: transparent; 
+    box-shadow: none;     
     margin-bottom: 20px;
     padding: 0;
 }
-
-/* Les labels restent blancs */
 .form-row label {
     color: white;
     font-weight: bold;
     min-width: 120px;
 }
-
-/* Les champs de saisie (translucides pour rester lisibles) */
 .form-row input, .form-row textarea {
     background-color: rgba(255, 255, 255, 0.6);
     border: none;
@@ -604,23 +589,20 @@ form {
     margin-top: 20px;
     border: 2px solid white;
 }
-/* Fond global transparent réduit */
 .formulaire-compact {
     background-color: rgba(255, 255, 255, 0.2); 
     backdrop-filter: blur(10px);
     border-radius: 30px;
     padding: 30px;
-    width: 45%; /* Réduit pour laisser voir le fond */
+    width: 45%; 
     margin: 20px auto;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 20px;
 }
-
-/* Bloc photo avec fond blanc opaque et lisible */
 .boite-photo {
-    background: white; /* Fond blanc comme demandé */
+    background: white; 
     padding: 20px;
     border-radius: 20px;
     text-align: center;
@@ -629,7 +611,7 @@ form {
 }
 
 .boite-photo-opaque p {
-    color: #555; /* Texte gris foncé pour être bien lisible */
+    color: #555; 
     font-size: 0.9rem;
 }
 .form-row {
@@ -639,33 +621,25 @@ form {
     gap: 15px;
     color: white;
 }
-/* Assure que l'icône est centrée dans le bloc blanc */
 #icon-placeholder {
     display: flex;
     justify-content: center;
     margin-bottom: 10px;
 }
-
-/* Bloc blanc pour le téléchargement */
 .boite-photo-opaque {
     background: white;
     padding: 20px;
     border-radius: 20px;
     text-align: center;
     width: 90%;
-    margin-bottom: 20px; /* Espace entre la photo et les champs */
+    margin-bottom: 20px; 
 }
-
-/* Texte à l'intérieur du bloc blanc */
 .boite-photo-opaque h2 {
     font-size: 1.2rem;
     margin: 5px 0;
     color: #333;
 }
-
-/* RESPONSIVE */
 @media (max-width: 768px) {
-    /* Navigation */
     .header {
         padding: 12px 4%;
     }
@@ -721,8 +695,6 @@ form {
     .logo-text p {
         font-size: 0.65rem;
     }
-    
-    /* Hero section */
     .hero {
         background-image: none;
         background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
@@ -794,8 +766,6 @@ form {
     .phone {
         max-height: 45vh;
     }
-    
-    /* Mission section */
     .mission {
         padding: 30px 5%;
     }
@@ -803,15 +773,11 @@ form {
     .mission h2 {
         font-size: 1.1rem;
     }
-    
-    /* Formulaire signaler */
     form, .formulaire-compact {
         width: 95%;
         padding: 25px 20px;
         border-radius: 20px;
     }
-    
-    /* Hero signaler */
     .signaler-hero {
         padding: 60px 5% 50px;
     }
@@ -888,8 +854,6 @@ form {
     .stats {
         gap: 12px;
     }
-    
-    /* Hero signaler tablette */
     .signaler-hero {
         padding: 70px 5% 55px;
     }
@@ -902,9 +866,6 @@ form {
         font-size: 1.1rem;
     }
 }
-
-/* PAGE À PROPOS */
-
 .about-hero {
     background: #fff;
     padding: 80px 6% 60px;
@@ -999,8 +960,6 @@ form {
     color: var(--gray);
     margin-bottom: 15px;
 }
-
-/* ÉTAPES */
 .steps {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -1046,8 +1005,6 @@ form {
     color: var(--gray);
     line-height: 1.6;
 }
-
-/* SECTION ÉQUIPE */
 .team-section {
     padding: 60px 6%;
     background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
@@ -1162,8 +1119,6 @@ form {
 .social-links-team a i {
     font-size: 1.1rem;
 }
-
-/* SECTION STATS */
 .stats-section {
     padding: 60px 6%;
     background: white;
@@ -1207,8 +1162,6 @@ form {
     font-size: 1rem;
     color: var(--gray);
 }
-
-/* RESPONSIVE À PROPOS */
 @media (max-width: 768px) {
     .about-hero {
         padding: 60px 5% 50px;
