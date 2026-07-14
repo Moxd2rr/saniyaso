@@ -65,16 +65,16 @@
         <input type="text" id="lieu" placeholder="Signaler le lieu" required>
     </div>
     <div class="form-row">
-    <button type="button" id="btnLocalisation" class="green-btn">
-        📍 Utiliser ma position actuelle
-    </button>
-
-    <br><br>
-
-    <a id="lienMaps" href="#" target="_blank" style="display:none; color:#1d9041; font-weight:bold;">
-        📍 Voir l'emplacement sur Google Maps
-    </a>
-</div>
+        <label>Position :</label>
+        <div style="display:flex; flex-direction:column; gap:8px; flex:1;">
+            <button type="button" id="btnLocalisation" class="green-btn" style="width:fit-content;">
+                Utiliser ma position actuelle
+            </button>
+            <a id="lienMaps" href="#" target="_blank" style="display:none; color:#1d9041; font-weight:bold;">
+                Voir l'emplacement sur Google Maps
+            </a>
+        </div>
+    </div>
     <div class="form-row">
         <label>DESCRIPTION :</label>
         <textarea id="desc" placeholder="Décrivez le dit dépotoir" required></textarea>
